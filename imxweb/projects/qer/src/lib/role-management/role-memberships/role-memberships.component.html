@@ -4,7 +4,7 @@
     <mat-button-toggle data-imx-identifier="role-memberships-button-primary" *ngIf="canHavePrimaryMemberships()" value="primary">{{ '#LDS#Primary memberships' | translate
       }}</mat-button-toggle>
     <mat-button-toggle data-imx-identifier="role-memberships-button-secondary" value="secondary">{{ '#LDS#Secondary memberships' | translate }}</mat-button-toggle>
-    <mat-button-toggle *ngIf="canBeDynamic" value="dynamicgroup">{{ '#LDS#Automatic memberships' | translate }}</mat-button-toggle>
+    <!--<mat-button-toggle *ngIf="canBeDynamic" value="dynamicgroup">{{ '#LDS#Automatic memberships' | translate }}</mat-button-toggle>-->
     <mat-button-toggle data-imx-identifier="role-memberships-button-exclusion" *ngIf="isDynamic" value="exclusions">{{ '#LDS#Excluded members' | translate }}
     </mat-button-toggle>
   </mat-button-toggle-group>

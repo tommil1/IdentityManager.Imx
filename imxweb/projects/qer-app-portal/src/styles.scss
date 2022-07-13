@@ -3,6 +3,7 @@ $material_icons_font_path: "~@elemental-ui/core/assets/MaterialIcons";
 $cadence_font_path: "~@elemental-ui/cadence-icon/dist";
 $source_sans_pro_font_path: "~@elemental-ui/core/assets/Source_Sans_Pro";
 
+@import 'variables.scss';
 @import '~@elemental-ui/core/src/styles/core.scss';
 
 .imx-dialog-panel-class > .mat-dialog-container {
@@ -70,6 +71,7 @@ imx-data-explorer-accounts {
     height: calc(100% - 120px);
 }
 
+
 // Custom ING Styles
 
 .eui-masthead,
@@ -79,9 +81,37 @@ imx-data-explorer-accounts {
     background-color: $ING_primary;
 }
 
-.mat-card {
-    .mat-card-title > eui-icon,
-    .mat-button-wrapper {
-        color: $ING_primary;
-    }
+.eui-sidesheet .mat-toolbar {
+    background-color: $ING_primary!important;
 }
+
+.eui-alert.eui-alert-type--info.eui-alert-colored {
+    background-color: rgba($ING_primary, 0.2)!important;
+    border: 1px solid $ING_primary!important;
+}
+.eui-alert.eui-alert-type--info .eui-alert-icon {
+    color: $ING_primary!important;
+}
+
+.mat-button.mat-primary, 
+.mat-icon-button.mat-primary, 
+.mat-stroked-button.mat-primary {
+    color: $ING_primary;
+}
+
+.governance-sidesheet .mat-expansion-panel .mat-form-field-appearance-outline .mat-form-field-flex,
+.roledetail-sidesheet .mat-form-field-appearance-outline .mat-form-field-flex {
+    pointer-events: none;
+}
+.governance-sidesheet .mat-expansion-panel .mat-form-field-appearance-outline .mat-form-field-outline,
+.roledetail-sidesheet .mat-form-field-appearance-outline .mat-form-field-flex {
+    background-color: $Imx_White-two;
+}
+
+.mat-expansion-panel{
+    #mat-checkbox-1,
+    #mat-checkbox-4,
+    #mat-checkbox-3 {
+        display: none;
+    }
+} 

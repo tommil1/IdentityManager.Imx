@@ -65,10 +65,10 @@
                 <span translate >#LDS#Assign to new manager</span>
               </button>
             </mat-menu>
-            <button mat-flat-button color="primary" (click)="save()" data-imx-identifier="identity-sidesheet-button-save"
+            <!--<button mat-flat-button color="primary" (click)="save()" data-imx-identifier="identity-sidesheet-button-save"
               [disabled]="detailsFormGroup?.pristine || detailsFormGroup?.invalid">
               <span translate>#LDS#Save</span>
-            </button>
+            </button>-->
           </div>
         </mat-card>
       </div>
@@ -137,15 +137,15 @@
           <mat-panel-title>
             {{ '#LDS#Personal data' | translate }}
           </mat-panel-title>
-        </mat-expansion-panel-header>
+        </mat-expansion-panel-header> 
         <imx-cdr-editor *ngFor="let cdr of cdrListPersonal" [cdr]="cdr" (readOnlyChanged)="update(cdr, cdrListPersonal)" (controlCreated)="detailsFormGroup.addControl(cdr.column.ColumnName,$event)">
         </imx-cdr-editor>
-        <mat-slide-toggle class="custom-toggle" #incidentToggle [formControl]="isSecurityIncidentFormControl"
+        <!--<mat-slide-toggle class="custom-toggle" #incidentToggle [formControl]="isSecurityIncidentFormControl"
           *ngIf="canMarkedAsIncident" (change)="onIsSecurityIncidentToggleChanged($event)"
           [attr.data-imx-identifier]="'identity-sidesheet-custom-toggle-for-column-' + data.selectedIdentity.IsSecurityIncident.Column.ColumnName + '-manager'">
           <span
             [translate]="incidentToggle.checked ? '#LDS#Identity poses a security risk' : '#LDS#Identity does not pose a security risk'"></span>
-        </mat-slide-toggle>
+        </mat-slide-toggle>-->
       </mat-expansion-panel>
       <mat-expansion-panel *ngIf="cdrListOrganizational.length > 0">
         <mat-expansion-panel-header>

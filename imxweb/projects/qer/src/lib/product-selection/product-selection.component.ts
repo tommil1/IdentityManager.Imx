@@ -351,8 +351,8 @@ export class ProductSelectionComponent implements OnInit, OnDestroy {
       title: await this.translate.get('#LDS#Heading View Product Details').toPromise(),
       padding: '0px',
       width: 'max(700px, 60%)',
-      headerColour: 'iris-blue',
-      bodyColour: 'asher-gray',
+      //headerColour: 'iris-blue',
+      //bodyColour: 'asher-gray',
       testId: 'product-details-sidesheet',
       data: {
         item,
