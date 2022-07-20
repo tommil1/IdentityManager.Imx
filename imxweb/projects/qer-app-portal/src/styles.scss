@@ -81,6 +81,29 @@ imx-data-explorer-accounts {
     background-color: $ING_primary;
 }
 
+.menu-wrap {
+    position: relative;
+    a.ing-home {
+        position: absolute;
+        top: 14px;
+        left: 32px;
+        font-size: 16px;
+        color: $ING_nav;
+        opacity: .6;
+        z-index: 100;
+
+        &:hover {
+            cursor: pointer;
+            color: $ING_primary;
+            text-decoration: none;
+        }
+    }
+
+    .mat-tab-list {
+        margin-left: 92px;
+    }
+}
+
 .eui-sidesheet .mat-toolbar {
     background-color: $ING_primary!important;
 }
