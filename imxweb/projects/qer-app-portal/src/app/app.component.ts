@@ -105,6 +105,10 @@ export class AppComponent implements OnInit, OnDestroy {
     this.router.navigate(['addressbook']);
   }
 
+  public goToHelpPage(): void {
+    this.router.navigate(['help-page']);
+  }
+
   public goHome(): void {
     this.router.navigate([this.appConfig.Config.routeConfig.start], { queryParams: {} });
   }

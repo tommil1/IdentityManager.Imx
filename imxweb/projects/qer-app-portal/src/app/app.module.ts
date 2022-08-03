@@ -78,10 +78,12 @@ import { PortalStarlingService } from './portal-starling.service';
 import { environment } from '../environments/environment';
 import appConfigJson from '../appconfig.json';
 import { PortalHistoryService } from './portal-history.service';
+import { HelpPageComponent } from './help-page/help-page.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HelpPageComponent
   ],
   imports: [
     AppRoutingModule,

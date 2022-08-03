@@ -99,6 +99,19 @@ imx-data-explorer-accounts {
         }
     }
 
+    a.ing-help {
+        position: absolute;
+        top: 14px;
+        right: 42px;
+        color: $ING_primary;
+        z-index: 100;
+
+        &:hover {
+            cursor: pointer;
+            font-weight: 500;
+        }
+    }
+
     .mat-tab-list {
         margin-left: 92px;
     }
