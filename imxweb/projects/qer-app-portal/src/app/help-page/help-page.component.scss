@@ -1,7 +1,24 @@
+@import 'variables.scss';
+
 table {
     width: 100%;
+    margin-top: 50px;
   }
 
-  h1 {
+h1 {
     margin-bottom: 30px;
+    font-size: 26px;
+    font-weight: 500;
   }
+
+p {
+  color: $ING_nav;
+  &.no-margin {
+    margin: 0;
+  }  
+  &.title {
+    color: $ING_primary;
+    font-size: 18px;
+    margin: 10px 0;
+  }
+}
