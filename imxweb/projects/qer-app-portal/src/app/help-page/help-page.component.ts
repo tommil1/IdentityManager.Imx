@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 
 export interface PeriodicElement {
@@ -9,8 +10,12 @@ export interface PeriodicElement {
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  {headCoe: '', contactInfo: '', serviceNow: '', confluence: ''},
-  
+  {
+    headCoe: 'John Doe',
+    contactInfo: 'johnDoe@mail.com', 
+    serviceNow: 'testing service', 
+    confluence: 'confluence-link.com'
+  }
 ];
 
 @Component({
@@ -22,5 +27,23 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class HelpPageComponent {
   displayedColumns: string[] = ['headCoe', 'contactInfo', 'serviceNow', 'confluence'];
   dataSource = ELEMENT_DATA;
+
+  constructor(private http: HttpClient) {}
+
+  ngOnInit() {
+    this.fetchAuth();
+  }
+
+  private fetchAuth() {
+    this.http 
+      .post('http://10.0.0.41/apiserver/ING_ApplicationGovernance/UnclaimEntitlement',{},
+        {
+          observe: 'response'
+        }
+      )
+      .subscribe(data => {
+        console.log(data);
+      });
+  }
 }
 
