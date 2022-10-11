@@ -37,7 +37,7 @@
     <!-- confluence Column -->
     <ng-container matColumnDef="confluence">
       <th mat-header-cell *matHeaderCellDef> Confluence page </th>
-      <td mat-cell *matCellDef="let element"> {{element.confluence}} </td>
+      <td mat-cell *matCellDef="let element"> <a href="{{element.confluence}}" target="_blank">{{element.confluence}}</a> </td>
     </ng-container>
   
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

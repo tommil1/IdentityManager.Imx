@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-
+import { MethodDescriptor, TimeZoneInfo } from 'imx-qbm-dbts';
+import { AppConfigService, AuthenticationService } from 'qbm';
 
 export interface PeriodicElement {
   contactInfo: string;
@@ -9,13 +9,9 @@ export interface PeriodicElement {
   confluence: string;
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {
-    headCoe: 'John Doe',
-    contactInfo: 'johnDoe@mail.com', 
-    serviceNow: 'testing service', 
-    confluence: 'confluence-link.com'
-  }
+let ELEMENT_DATA: PeriodicElement[] = [
+  {headCoe: '', contactInfo: '', serviceNow: '', confluence: ''},
+  
 ];
 
 @Component({
@@ -25,25 +21,69 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 
 export class HelpPageComponent {
+
   displayedColumns: string[] = ['headCoe', 'contactInfo', 'serviceNow', 'confluence'];
   dataSource = ELEMENT_DATA;
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private readonly config: AppConfigService,
+    private readonly authentication: AuthenticationService
+  ) {}
+  
+  public async ngOnInit(): Promise<void> {
 
-  ngOnInit() {
-    this.fetchAuth();
+    this.authentication.update();
+    this.getCustom();
+    
   }
 
-  private fetchAuth() {
-    this.http 
-      .post('http://10.0.0.41/apiserver/ING_ApplicationGovernance/UnclaimEntitlement',{},
-        {
-          observe: 'response'
-        }
-      )
-      .subscribe(data => {
-        console.log(data);
-      });
-  }
+ public async getCustom(): Promise<PeriodicElement> {
+  const data = await this.config.apiClient.processRequest(this.getFeatureConfigDescriptor());
+  ELEMENT_DATA = [data];
+  this.dataSource = ELEMENT_DATA;
+  return data;
+ }
+
+ private getFeatureConfigDescriptor(): MethodDescriptor<PeriodicElement> {
+  const parameters = [];
+  return {
+    path: `/portal/SupportPageInfo`,
+    parameters,
+    method: 'GET',
+    headers: {
+      'imx-timezone': TimeZoneInfo.get(),
+    },
+    credentials: 'include',
+    observe: 'response',
+    responseType: 'json',
+  };
 }
+
+ /*private do_put(inputParameterName: any): MethodDescriptor<EntityCollectionData> {
+
+    return {
+
+      path: "/ApiServer/ING_ITShopCustomizer/CCC_Test",
+      parameters: [
+        {
+          name: 'inputParameterName',
+          value: inputParameterName,
+          in: 'body'
+        },
+      ],
+
+      method: 'POST',
+      headers: {
+        'imx-timezone': TimeZoneInfo.get()
+      },
+
+      credentials: 'include',
+      observe: 'response',
+      responseType: 'json',
+    };
+
+  }*/
+}
+
+
 
