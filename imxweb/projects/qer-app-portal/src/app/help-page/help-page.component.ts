@@ -33,7 +33,7 @@ export class HelpPageComponent {
   public async ngOnInit(): Promise<void> {
 
     this.authentication.update();
-    this.getCustom();
+    //this.getCustom();
     
   }
 

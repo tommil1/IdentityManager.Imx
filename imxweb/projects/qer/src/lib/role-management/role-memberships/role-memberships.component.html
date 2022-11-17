@@ -6,9 +6,9 @@
     <mat-tab [label]="'#LDS#Secondary memberships' | translate">
       <imx-secondary-memberships [isAdmin]="isAdmin" [entity]="entity" [ownershipInfo]="ownershipInfo"></imx-secondary-memberships>
     </mat-tab>
-    <mat-tab *ngIf="canBeDynamic" [label]="'#LDS#Automatic memberships' | translate">
+    <!--<mat-tab *ngIf="canBeDynamic" [label]="'#LDS#Automatic memberships' | translate">
       <imx-dynamic-group [entity]="entity" [isAdmin]="isAdmin" [uidDynamicGroup]="uidDynamicGroup"></imx-dynamic-group>
-    </mat-tab>
+    </mat-tab>-->
     <mat-tab *ngIf="isDynamic" [label]="'#LDS#Excluded memberships' | translate">
       <imx-excluded-memberships [entity]="entity"></imx-excluded-memberships>
     </mat-tab>

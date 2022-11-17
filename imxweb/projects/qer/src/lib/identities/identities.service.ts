@@ -124,7 +124,7 @@ export class IdentitiesService {
     this.logger.debug(this, `Retrieving direct reports of the manager`);
     this.logger.trace('Navigation state', navigationState);
     return this.qerClient.typedClient.PortalPersonReports.Get({
-      OnlyDirect: true, // direct reports only,
+      OnlyDirect: false, // direct reports only,
       ...navigationState
     });
   }
