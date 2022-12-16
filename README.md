@@ -4,6 +4,34 @@
 
 ## Change log
 
+### December 12, 2022
+
+The `v82` branch has been updated with fixes for the following issues:
+
+- 36288 Fix assertion error by moving code from constructor to OnInit method in `imxweb/projects/qbm/src/lib/user-message/user-message.component.ts`.
+- 387119 Some tiles on the dashboard were overlapping on smaller resolutions.
+- 393025 An error occurred when GetDataModel was undefined.
+
+### November 17, 2022
+
+The `v82` branch has been updated with fixes for the following issues:
+
+- 36011 Identity administrators cannot change main data for identities.
+- 36016 Changing the application title causes the dashboard link to fail.
+- 36143 Candidate objects for parameter objects sometimes do not get reloaded.
+- 35988 Reports cannot be subscribed if "PDF" is not included in the list of valid values.
+
+### September 14, 2022
+
+The `v82` branch has been updated with fixes for the following issues:
+
+- 35898 A partial shopping cart cannot be submitted, so the submit button is deactivated when the user makes a partial selection
+- 35818 The shopping cart items now show the cart item display and not the service item display
+- 314557 Added an unsaved changes check in the dynamic role editor
+- 320800 The menu item "Move to shopping cart" is shown disabled when no items are selected
+- 304748 Error messages sometimes were sometimes displayed only after an additional click
+- 308454/308947 Fixed small UI glitches in the Operations Support Portal
+
 ### May 2, 2022
 
 The repository has been updated with the code changes for the Identity Manager 8.2.1 release.
@@ -51,7 +79,6 @@ For more information about each project, see the `readme.md` files in each proje
 |`qer-app-portal`|Portal|Angular app|`qbm`, `qer`|
 |`qer-app-operationssupport`|Operations Support Portal|Angular app|`qbm`, `qer`|
 |`qer-app-pwdportal`|Password Reset Portal|Angular app|`qbm`, `qer`|
-|`arc-app-certaccess`|Starling CertAccess|Angular app|various|
 
 ## Building
 
@@ -67,8 +94,6 @@ To build any library or app, run `npm build <name>`. Note that you must build ea
 When changing the code of a _library_, you will need to build and deploy customized versions of all the apps that should use the customized versions. For example, changing `qer` will require that you also compile `qer-app-portal`, `qer-app-operationssupport` and `qer-app-pwdportal` because all of these apps include `qbm`.
 
 When changing the code of a _plugin library_, you will need to build and deploy customized versions of the plugin library itself, and all plugin libraries depending on it. For example, changing `tsb` will require that you also compile `aad` and `o3t` because these plugins include `tsb`.
-
-_Note_: Starling CertAccess currently does not support hosting custom HTML5 apps.
 
 ### Debugging
 
