@@ -39,7 +39,7 @@ export class MaintenanceBannerComponent {
    private getMaintenanceFeatureData(): MethodDescriptor<MaintenanceElement> {
     const parameters = [];
     return {
-      path: `/portal/SupportPageInfo`,
+      path: `/portal/MaintenanceMessage`,
       parameters,
       method: 'GET',
       headers: {
