@@ -7,7 +7,7 @@ export interface MaintenanceElement {
 }
 
 let maintenanceText: MaintenanceElement = {
-  message:'On Monday March 15th ( 15.00 - 17.00 CET ) the ITShop will be unavailable for scheduled maintenance.',
+  message:'',
 }
 
 @Component({
@@ -17,16 +17,19 @@ let maintenanceText: MaintenanceElement = {
 })
 
 export class MaintenanceBannerComponent {
-  isShow = true;
+  isShow;
   bannerText = maintenanceText;
 
   closeBanner() {
-    this.isShow = false;
+    localStorage.setItem('isShow', 'false');
+    this.isShow = JSON.parse(localStorage.getItem('isShow'));
+    console.log(this.isShow)
   }
   constructor( private readonly config: AppConfigService ) {  }
 
   public async ngOnInit(): Promise<void> {
-    //this.showBannerText();
+    this.showBannerText();
+    this.isShow = JSON.parse(localStorage.getItem('isShow'));
   }
 
   public async showBannerText(): Promise<MaintenanceElement> {
