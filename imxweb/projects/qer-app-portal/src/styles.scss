@@ -143,3 +143,12 @@ imx-data-explorer-accounts {
 .roledetail-sidesheet .mat-form-field-appearance-outline .mat-form-field-flex {
     background-color: $Imx_White-two;
 }
+
+.cc_indentity-sidesheet {
+    .mat-select-arrow {
+        color: transparent;
+    }
+    .mat-form-field-appearance-outline .mat-form-field-suffix {
+      display: none!important;
+    }
+  }
