@@ -136,9 +136,14 @@ imx-data-explorer-accounts {
 }
 
 .governance-sidesheet .mat-expansion-panel .mat-form-field-appearance-outline .mat-form-field-flex,
-.roledetail-sidesheet .mat-form-field-appearance-outline .mat-form-field-flex {
-    pointer-events: none;
-}
+.roledetail-sidesheet .mat-form-field-appearance-outline {
+    .mat-form-field-flex {
+        pointer-events: none;
+    }
+    .mat-form-field-suffix {
+        display: none!important;
+      }
+} 
 .governance-sidesheet .mat-expansion-panel .mat-form-field-appearance-outline .mat-form-field-outline,
 .roledetail-sidesheet .mat-form-field-appearance-outline .mat-form-field-flex {
     background-color: $Imx_White-two;
