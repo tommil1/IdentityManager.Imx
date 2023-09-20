@@ -63,8 +63,6 @@ import { UserModule } from './user/user.module';
 import { ShoppingCartValidationDetailModule } from './shopping-cart-validation-detail/shopping-cart-validation-detail.module';
 import { RoleMembershipsModule } from './role-management/role-memberships/role-memberships.module';
 import { MaintenanceBannerComponent } from './wport/start/maintenance-banner/maintenance-banner.component';
-import { NewsletterModule } from './newsletter/newsletter.module';
-import { NewsletterFeatureComponent } from './newsletter/newsletter-feature/newsletter-feature.component';
 import { SupportModule } from './support/support.module';
 import { NewsletterComponent } from './support/newsletter/newsletter.component';
 import { CoeContactComponent } from './support/coe-contact/coe-contact.component';
