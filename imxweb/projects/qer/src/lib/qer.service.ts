@@ -88,13 +88,23 @@ export class QerService {
     this.menuService.addMenuFactories(
        (_preProps: string[], __: string[]) => {
            return {
-            id: 'ROOT_OTHER_FEATURES',
-            title: '#LDS#Other',
+            id: 'ROOT_SUPPORT',
+            title: '#LDS#Support',
             items: [
              {
                id: 'NEWSLETTER_FEATURE',
                route: 'newsletter',
                title: '#LDS#Newsletter'
+             },
+             {
+              id: 'INSTRUCTIONS_FEATURE',
+              route: 'instructions',
+              title: '#LDS#Instructions'
+             },
+             {
+              id: 'COE-CONTACT_FEATURE',
+              route: 'coe-contact',
+              title: '#LDS#CoE Contact'
              }
             ]
            };

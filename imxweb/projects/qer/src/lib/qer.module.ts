@@ -89,7 +89,19 @@ const routes: Routes = [
   },
   {
     path: 'newsletter',
-    component: NewsletterFeatureComponent,
+    component: NewsletterComponent,
+    canActivate: [RouteGuardService],
+    resolve: [RouteGuardService],
+  },
+  {
+    path: 'instructions',
+    component: InstructionsComponent,
+    canActivate: [RouteGuardService],
+    resolve: [RouteGuardService],
+  },
+  {
+    path: 'coe-contact',
+    component: CoeContactComponent,
     canActivate: [RouteGuardService],
     resolve: [RouteGuardService],
   },
