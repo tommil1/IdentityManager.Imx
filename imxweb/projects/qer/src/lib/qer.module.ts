@@ -63,6 +63,8 @@ import { UserModule } from './user/user.module';
 import { ShoppingCartValidationDetailModule } from './shopping-cart-validation-detail/shopping-cart-validation-detail.module';
 import { RoleMembershipsModule } from './role-management/role-memberships/role-memberships.module';
 import { MaintenanceBannerComponent } from './wport/start/maintenance-banner/maintenance-banner.component';
+import { NewsletterModule } from './newsletter/newsletter.module';
+import { NewsletterFeatureComponent } from './newsletter/newsletter-feature/newsletter-feature.component';
 
 export function initConfig(config: QerService): () => Promise<any> {
   return () =>
@@ -112,6 +114,7 @@ const routes: Routes = [
     FkAdvancedPickerModule,
     OpsModule,
     DataExplorerViewModule,
+    NewsletterModule
   ],
   exports: [StarlingComponent, PasscodeViewerComponent, ObjectOverviewPersonComponent],
   providers: [
