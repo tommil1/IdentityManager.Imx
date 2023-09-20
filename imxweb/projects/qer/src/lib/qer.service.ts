@@ -65,7 +65,7 @@ export class QerService {
   }
 
   /** This method defines the menu structure for the portal. */
-  private setupMenu(): void {
+  // private setupMenu(): void {
     // this.menuService.addMenuFactories(
     //   //TODO later #206706
     //   (preProps: string[], __: string[]) => {
@@ -82,5 +82,23 @@ export class QerService {
     //     };
     //   }
     // );
-  }
+  // }
+
+  private setupMenu(): void {
+    this.menuService.addMenuFactories(
+       (_preProps: string[], __: string[]) => {
+           return {
+            id: 'ROOT_OTHER_FEATURES',
+            title: '#LDS#Other',
+            items: [
+             {
+               id: 'NEWSLETTER_FEATURE',
+               route: 'newsletter',
+               title: '#LDS#Newsletter'
+             }
+            ]
+           };
+       }
+     );
+ }
 }
