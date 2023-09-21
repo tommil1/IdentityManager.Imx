@@ -10,7 +10,10 @@
         </button>
       </span>
     </imx-mast-head>
-    <imx-menu [hidden]="hideMenu" [menuItems]="menuItems"></imx-menu>
+    <div class="menu-wrap">
+      <imx-menu [hidden]="hideMenu" [menuItems]="menuItems"></imx-menu>
+      <a class="ing-home" (click)="goHome()">Home</a>
+    </div>
   </ng-container>
   <div class="pageContent" [ngClass]="{ 'pageContent--full-page': isContentFullScreen }">
     <imx-usermessage *ngIf="isLoggedIn" [hidden]="hideUserMessage"></imx-usermessage>

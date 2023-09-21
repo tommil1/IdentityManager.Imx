@@ -29,10 +29,12 @@ import { OverlayRef } from '@angular/cdk/overlay';
 import { Router, NavigationEnd, NavigationStart, NavigationError, RouterEvent, NavigationCancel } from '@angular/router';
 import { Subscription } from 'rxjs';
 
-import { AuthenticationService, ISessionState, MenuItem, SystemInfoService, MenuService, IeWarningService } from 'qbm';
+import { AppConfigService,AuthenticationService, ISessionState, MenuItem, SystemInfoService, MenuService, IeWarningService } from 'qbm';
 import { PendingItemsType, ProjectConfigurationService, UserModelService } from 'qer';
 import { QerProjectConfig } from 'imx-api-qer';
 import { ProjectConfig } from 'imx-api-qbm';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { PopupSupportWindowComponent } from 'projects/qer/src/lib/support/popup-support-window/popup-support-window.component';
 
 @Component({
   selector: 'imx-root',
@@ -50,12 +52,14 @@ export class AppComponent implements OnInit, OnDestroy {
 
   constructor(
     private readonly authentication: AuthenticationService,
+    public readonly appConfig: AppConfigService,
     menuService: MenuService,
     userModelService: UserModelService,
     private readonly router: Router,
     systemInfoService: SystemInfoService,
     ieWarningService: IeWarningService,
-    projectConfig: ProjectConfigurationService
+    projectConfig: ProjectConfigurationService,
+    private dialog: MatDialog
   ) {
     this.subscriptions.push(
       this.authentication.onSessionResponse.subscribe(async (sessionState: ISessionState) => {
@@ -90,6 +94,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   public async ngOnInit(): Promise<void> {
     this.authentication.update();
+    this.OpenDialogWin();
   }
 
   public ngOnDestroy(): void {
@@ -102,6 +107,14 @@ export class AppComponent implements OnInit, OnDestroy {
 
   public async goToAddressbook(): Promise<void> {
     this.router.navigate(['addressbook']);
+  }
+
+  public goToHelpPage(): void {
+    this.router.navigate(['help-page']);
+  }
+
+  public goHome(): void {
+    this.router.navigate([this.appConfig.Config.routeConfig.start], { queryParams: {} });
   }
 
   private setupRouter(): void {
@@ -125,5 +138,9 @@ export class AppComponent implements OnInit, OnDestroy {
         this.hideUserMessage = false;
       }
     }));
+  }
+  public OpenDialogWin(){
+    const dialogConfig = new MatDialogConfig();
+    this.dialog.open(PopupSupportWindowComponent)
   }
 }

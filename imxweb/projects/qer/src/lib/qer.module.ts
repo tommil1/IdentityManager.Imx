@@ -62,6 +62,11 @@ import { TilesModule } from './tiles/tiles.module';
 import { UserModule } from './user/user.module';
 import { ShoppingCartValidationDetailModule } from './shopping-cart-validation-detail/shopping-cart-validation-detail.module';
 import { RoleMembershipsModule } from './role-management/role-memberships/role-memberships.module';
+import { MaintenanceBannerComponent } from './wport/start/maintenance-banner/maintenance-banner.component';
+import { SupportModule } from './support/support.module';
+import { NewsletterComponent } from './support/newsletter/newsletter.component';
+import { CoeContactComponent } from './support/coe-contact/coe-contact.component';
+import { InstructionsComponent } from './support/instructions/instructions.component';
 
 export function initConfig(config: QerService): () => Promise<any> {
   return () =>
@@ -80,11 +85,29 @@ const routes: Routes = [
     canActivate: [RouteGuardService],
     resolve: [RouteGuardService],
   },
+  {
+    path: 'newsletter',
+    component: NewsletterComponent,
+    canActivate: [RouteGuardService],
+    resolve: [RouteGuardService],
+  },
+  {
+    path: 'instructions',
+    component: InstructionsComponent,
+    canActivate: [RouteGuardService],
+    resolve: [RouteGuardService],
+  },
+  {
+    path: 'coe-contact',
+    component: CoeContactComponent,
+    canActivate: [RouteGuardService],
+    resolve: [RouteGuardService],
+  },
 ];
 
 // @dynamic
 @NgModule({
-  declarations: [StarlingComponent, StartComponent, BusinessOwnerChartSummaryComponent],
+  declarations: [StarlingComponent, StartComponent, BusinessOwnerChartSummaryComponent, MaintenanceBannerComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
@@ -111,6 +134,7 @@ const routes: Routes = [
     FkAdvancedPickerModule,
     OpsModule,
     DataExplorerViewModule,
+    SupportModule
   ],
   exports: [StarlingComponent, PasscodeViewerComponent, ObjectOverviewPersonComponent],
   providers: [

@@ -43,8 +43,24 @@
     .mat-tab-link {
       font-size: 16px;
       color: $black-6;
+      
+      &:hover {
+        color: $ING_primary;
+      }
     }
   }
 }
 
+.ROOT_Compliance,
+.ROOT_Responsibilities,
+.ROOT_Setup,
+.ROOT_Data {
+    display: none;
+}
 
+
+.ROOT_SUPPORT {
+  position: absolute;
+  right: 0px;
+  color: $ING_primary !important;
+}
